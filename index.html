@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pay Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #f4f6f8 0%, #e9eef3 100%);
+      color: #1f2937;
+      text-align: center;
+      padding: 24px 16px;
+    }
+
+    .card {
+      max-width: 430px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 22px;
+      padding: 28px 22px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.10);
+    }
+
+    .top-photo {
+      width: 90px;
+      height: 90px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #f3f4f6;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    .top-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 30px;
+    }
+
+    .subtitle {
+      margin: 0 0 24px;
+      color: #6b7280;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .step {
+      background: #f3f4f6;
+      color: #374151;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 15px 16px;
+      margin: 12px 0;
+      border-radius: 14px;
+      text-decoration: none;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      opacity: 0.96;
+    }
+
+    .btn img {
+      width: 24px;
+      height: 24px;
+      object-fit: contain;
+      background: white;
+      border-radius: 6px;
+      padding: 2px;
+    }
+
+    .cashapp { background: #00c244; }
+    .venmo { background: #008cff; }
+    .paypal { background: #003087; }
+
+    .section {
+      margin-top: 26px;
+      padding: 18px;
+      border-radius: 16px;
+      background: #f9fafb;
+      text-align: left;
+    }
+
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .section p {
+      margin: 6px 0;
+      color: #4b5563;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .qr-box {
+      margin-top: 24px;
+      padding: 18px;
+      border-radius: 18px;
+      background: #f9fafb;
+    }
+
+    .qr-box h3 {
+      margin: 0 0 12px;
+      font-size: 18px;
+    }
+
+    .qr-box img {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 14px;
+      background: white;
+      padding: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .small {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #6b7280;
+      line-height: 1.5;
+    }
+
+    .footer {
+      margin-top: 22px;
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    .divider {
+      height: 1px;
+      background: #e5e7eb;
+      margin: 24px 0 8px;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="top-photo">
+      <img src="cliente.jpeg" alt="Foto del cliente">
+    </div>
+
+    <h1 id="title">Pagar a Allan</h1>
+    <p class="subtitle" id="subtitle">
+      Toca un botón para pagar o escanea el código QR.
+    </p>
+
+    <div class="steps">
+      <div class="step" id="step1">1. Tap</div>
+      <div class="step" id="step2">2. Scan</div>
+      <div class="step" id="step3">3. Pay</div>
+    </div>
+
+    <a class="btn cashapp" href="https://cash.app/$TuUsuario" target="_blank">
+      <img src="icons/cashapp.png" alt="Cash App">
+      <span id="cashappText">Pagar con Cash App</span>
+    </a>
+
+    <a class="btn venmo" href="https://venmo.com/TuUsuario" target="_blank">
+      <img src="icons/venmo.png" alt="Venmo">
+      <span id="venmoText">Pagar con Venmo</span>
+    </a>
+
+    <a class="btn paypal" href="https://www.paypal.com/paypalme/AllanSMendoza" target="_blank">
+      <img src="icons/paypal.png" alt="PayPal">
+      <span id="paypalText">Pagar con PayPal</span>
+    </a>
+
+    <div class="section" id="zelle-info">
+      <h2 id="zelleTitle">Zelle</h2>
+      <p id="zelleLead"><strong>Envía tu pago a:</strong></p>
+      <p><strong id="phoneLabel">Número:</strong> +1 5109620420</p>
+      <p id="zelleDescription">Si tu banco usa Zelle, puedes pagarme con cualquiera de estos datos.</p>
+    </div>
+
+    <div class="qr-box">
+      <h3 id="qrTitle">Escanea mi QR</h3>
+      <img src="qr.png" alt="QR de pago">
+      <div class="small" id="qrText">
+        También puedes usar este código QR para enviar el pago rápidamente.
+      </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="footer" id="footerText">
+      Gracias por tu apoyo
+    </div>
+  </div>
+
+  <script>
+    const translations = {
+      es: {
+        pageTitle: "Pagar a Allan",
+        title: "Pagar a Allan",
+        subtitle: "Toca un botón para pagar o escanea el código QR.",
+        step1: "1. Toca",
+        step2: "2. Escanea",
+        step3: "3. Paga",
+        cashapp: "Pagar con Cash App",
+        venmo: "Pagar con Venmo",
+        paypal: "Pagar con PayPal",
+        zelleTitle: "Zelle",
+        zelleLead: "Envía tu pago a:",
+        phoneLabel: "Número:",
+        emailLabel: "Email:",
+        zelleDescription: "Si tu banco usa Zelle, puedes pagarme con cualquiera de estos datos.",
+        qrTitle: "Escanea mi QR",
+        qrText: "También puedes usar este código QR para enviar el pago rápidamente.",
+        footer: "Gracias por tu apoyo"
+      },
+      en: {
+        pageTitle: "Pay Allan",
+        title: "Pay Allan",
+        subtitle: "Tap a button to pay or scan the QR code.",
+        step1: "1. Tap",
+        step2: "2. Scan",
+        step3: "3. Pay",
+        cashapp: "Pay with Cash App",
+        venmo: "Pay with Venmo",
+        paypal: "Pay with PayPal",
+        zelleTitle: "Zelle",
+        zelleLead: "Send your payment to:",
+        phoneLabel: "Phone:",
+        emailLabel: "Email:",
+        zelleDescription: "If your bank uses Zelle, you can pay me with either of these details.",
+        qrTitle: "Scan my QR code",
+        qrText: "You can also use this QR code to send the payment quickly.",
+        footer: "Thank you for your support"
+      }
+    };
+
+    const userLang = (navigator.languages && navigator.languages[0]) || navigator.language || "en";
+    const lang = userLang.toLowerCase().startsWith("es") ? "es" : "en";
+    const t = translations[lang];
+
+    document.documentElement.lang = lang;
+    document.title = t.pageTitle;
+
+    document.getElementById("title").textContent = t.title;
+    document.getElementById("subtitle").textContent = t.subtitle;
+    document.getElementById("step1").textContent = t.step1;
+    document.getElementById("step2").textContent = t.step2;
+    document.getElementById("step3").textContent = t.step3;
+    document.getElementById("cashappText").textContent = t.cashapp;
+    document.getElementById("venmoText").textContent = t.venmo;
+    document.getElementById("paypalText").textContent = t.paypal;
+    document.getElementById("zelleTitle").textContent = t.zelleTitle;
+    document.getElementById("zelleLead").innerHTML = "<strong>" + t.zelleLead + "</strong>";
+    document.getElementById("phoneLabel").textContent = t.phoneLabel;
+    document.getElementById("emailLabel").textContent = t.emailLabel;
+    document.getElementById("zelleDescription").textContent = t.zelleDescription;
+    document.getElementById("qrTitle").textContent = t.qrTitle;
+    document.getElementById("qrText").textContent = t.qrText;
+    document.getElementById("footerText").textContent = t.footer;
+  </script>
+</body>
+</html>
